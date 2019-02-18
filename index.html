@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+    <link rel="stylesheet" href="zoom-button/styles.3ff695c00d717f2d2a11.css"/>
+    <script type="text/javascript" src="./zoom-button/runtime.b2cdafc9eb8bc46e47e2.js"></script>
+    <script type="text/javascript" src="./zoom-button/polyfills.c1136cc34a0e3624415c.js"></script>
+    <script type="text/javascript" src="./zoom-button/scripts.e84e36a0841a046b4d25.js"></script>
+    <script type="text/javascript" src="./zoom-button/main.7c4b8ed06c6045b9af63.js"></script>
+    <title>Javascript App</title>
+  </head>
+  <body>
+  <div style="text-align:center">
+    <img width="300" alt="Javascript Logo" src="./img/icon.javascript%202.png">
+  </div>
+
+    <zoom-button id="customElement"></zoom-button>
+    <h2 style="text-align:center"> The counter : <p id="counter"></p></h2>
+    <script>
+      let counter = 0;
+      const component = document.getElementById('customElement');
+      component.addEventListener('actionClick', (event)=>{
+          counter = event.detail;
+          document.getElementById("counter").innerText = counter;
+      });
+      setTimeout(() =>
+          component.setAttribute("message","Hello this is a message from Javascript"),
+          3000
+      );
+
+    </script>
+  </body>
+</html>
