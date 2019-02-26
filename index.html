@@ -1,38 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
+<head>
+    <meta charset="utf-8"/>
     <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta name="theme-color" content="#000000" />
-    <link rel="stylesheet" href="zoom-button/styles.3ff695c00d717f2d2a11.css"/>
-    <script type="text/javascript" src="./zoom-button/runtime.b2cdafc9eb8bc46e47e2.js"></script>
-    <script type="text/javascript" src="./zoom-button/polyfills.c1136cc34a0e3624415c.js"></script>
-    <script type="text/javascript" src="./zoom-button/scripts.e84e36a0841a046b4d25.js"></script>
-    <script type="text/javascript" src="./zoom-button/main.7c4b8ed06c6045b9af63.js"></script>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="stylesheet" href="common.css"/>
+    <script type="text/javascript" src="./zoom-button/runtime.js"></script>
+    <script type="text/javascript" src="./zoom-button/polyfills.js"></script>
+    <script type="text/javascript" src="./zoom-button/scripts.js"></script>
+    <script type="text/javascript" src="./zoom-button/main.js"></script>
     <title>Javascript App</title>
-  </head>
-  <body>
-  <div style="text-align:center">
+</head>
+<body>
+<div style="text-align:center">
     <img width="300" alt="Javascript Logo" src="./img/icon.javascript%202.png">
-  </div>
+</div>
+<div class="grid" style="text-align:center">
+    <div class="grid__row">
+        <div class="grid__cell--S">
+            <div>Regular button, counter: <span id="counter"></span></div>
+            <zoom-button id="customElement" raetId="largeButton" type="button"></zoom-button>
+        </div>
+        <div class="grid__cell--S">
+            <div>Secondary button, counter: <span id="counter2"></span></div>
+            <zoom-button id="customElement2" raetId="secondaryButton" mode="secondary"></zoom-button>
+        </div>
+        <div class="grid__cell--S">
+            <div>Disabled button, counter: <span id="counter3"></span></div>
+            <zoom-button id="customElement3" mode="link" is-disabled="true" raetId="largeButtonDisabled"></zoom-button>
+        </div>
+    </div>
+    <div class="grid__row">
+        <div class="grid__cell--S">
+            <div>Regular button (medium size)</div>
+            <zoom-button size="medium" raet-id="mediumButtonPrimary" type="button"></zoom-button>
+        </div>
+        <div class="grid__cell--S">
+            <div>Secondary button (medium size)</div>
+            <zoom-button size="medium" mode="secondary"></zoom-button>
 
-    <zoom-button id="customElement"></zoom-button>
-    <h2 style="text-align:center"> The counter : <p id="counter"></p></h2>
-    <script>
-      let counter = 0;
-      const component = document.getElementById('customElement');
-      component.addEventListener('actionClick', (event)=>{
-          counter = event.detail;
-          document.getElementById("counter").innerText = counter;
-      });
-      setTimeout(() =>
-          component.setAttribute("message","Hello this is a message from Javascript"),
-          3000
-      );
+        </div>
+        <div class="grid__cell--S">
+            <div>Disabled button (medium size)</div>
+            <zoom-button size="medium" is-disabled="true"></zoom-button>
+        </div>
+    </div>
+    <div class="grid__row">
+        <div class="grid__cell--S">
+            <div>Regular button (small size)</div>
+            <zoom-button size="small" raet-id="medium-button-primary" type="{button"></zoom-button>
+        </div>
+        <div class="grid__cell--S">
+            <div>Secondary button (small size)</div>
+            <zoom-button size="small" mode="secondary"></zoom-button>
 
-    </script>
-  </body>
+        </div>
+        <div class="grid__cell--S">
+            <div>Disabled button (small size)</div>
+            <zoom-button size="small" is-disabled="true"></zoom-button>
+        </div>
+    </div>
+
+    <div class="grid__row">
+        <div class="grid__cell--S">
+            <div>Regular button (loading state)</div>
+            <zoom-button raet-id="largeButtonPromise" id="customElement10"></zoom-button>
+        </div>
+        <div class="grid__cell--S">
+            <div>Secondary button (loading state)</div>
+            <zoom-button mode="secondary"></zoom-button>
+        </div>
+        <div class="grid__cell--S">
+            <div>Disabled button (loading state)</div>
+            <zoom-button is-disabled="true"></zoom-button>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    let counter1 = 0, counter2 = 0, counter3 = 0;
+    const button1 = document.getElementById('customElement');
+    button1.addEventListener('actionClick', (event) => {
+        counter1 = event.detail;
+        document.getElementById("counter").innerText = counter1;
+    });
+    const button2 = document.getElementById('customElement2');
+    button2.addEventListener('actionClick', (event) => {
+        counter2 = event.detail;
+        document.getElementById("counter2").innerText = counter2;
+    });
+
+    const button3 = document.getElementById('customElement3');
+    button3.addEventListener('actionClick', (event) => {
+        counter3 = event.detail;
+        document.getElementById("counter3").innerText = counter3;
+    });
+
+    const button10 = document.getElementById('customElement10');
+    button10.addEventListener('actionClick', (event) => {
+        console.log(event);
+        button10.isActive = true;
+        button10.isLoading = true;
+
+    });
+
+
+</script>
+</body>
 </html>

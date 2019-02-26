@@ -1,0 +1,22 @@
+{
+  "name": "custom-elements-javascript",
+  "version": "1.0.0",
+  "description": "zoom button agnostic running in javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamcucusa/custom-elements-javascript.git"
+  },
+  "author": "Graciela",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamcucusa/custom-elements-javascript/issues"
+  },
+  "homepage": "https://github.com/iamcucusa/custom-elements-javascript#readme",
+  "dependencies": {
+    "@zoomui/basics": "0.0.1"
+  }
+}
